@@ -1,0 +1,4 @@
+INSERT INTO public."dim_cliente" (
+	"nome")
+VALUES (
+	'{{insert_form.formData.nome}}');

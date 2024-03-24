@@ -1,0 +1,3 @@
+UPDATE public."dim_cliente" SET
+		"nome" = '{{update_form.fieldState.nome.isVisible ? update_form.formData.nome : update_form.sourceData.nome}}'
+WHERE "pk_cliente" = {{data_table.selectedRow.pk_cliente}};
