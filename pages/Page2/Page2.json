@@ -1,52 +1,45 @@
 {
   "unpublishedPage": {
-    "name": "Page1",
-    "slug": "page1",
+    "name": "Page2",
+    "slug": "page2",
     "layouts": [
       {
         "viewMode": false,
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 1174,
+          "rightColumn": 1224,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1560,
+          "bottomRow": 400,
           "containerStyle": "none",
-          "snapRows": 125,
+          "snapRows": 57,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
           "version": 89,
-          "minHeight": 900,
+          "minHeight": 590,
           "parentColumnSpace": 1,
-          "dynamicTriggerPathList": [],
           "dynamicBindingPathList": [],
           "leftColumn": 0
         },
         "layoutOnLoadActions": [
           [
             {
-              "id": "Page1_SelectQuery",
-              "name": "SelectQuery",
+              "id": "Page2_query_qtd_e_media_produto",
+              "name": "query_qtd_e_media_produto",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
-              "jsonPathKeys": [
-                "data_table.sortOrder.order || 'ASC'",
-                "data_table.sortOrder.column || 'pk_cliente'",
-                "data_table.pageSize",
-                "data_table.searchText || \"\"",
-                "(data_table.pageNo - 1) * data_table.pageSize"
-              ],
+              "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             }
           ]
         ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
-        "id": "Page1",
+        "id": "Page2",
         "deleted": false,
         "policies": [],
         "userPermissions": []
@@ -56,5 +49,5 @@
     "policies": []
   },
   "deleted": false,
-  "gitSyncId": "65ff58bbc89b9773a1a97a75_65ff58bbc89b9773a1a97a77"
+  "gitSyncId": "65ff8124c89b9773a1a97a86_65ff944ec89b9773a1a97aac"
 }

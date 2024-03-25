@@ -1,0 +1,7 @@
+select nome_produto, count(*) as qtd, avg(valor_venda) as preco_medio  FROM public.dim_cliente
+inner join public.fato on public.dim_cliente.pk_cliente = public.fato.fk_cliente
+inner join public.dim_produto on public.dim_produto.pk_produto = public.fato.fk_produto
+inner join public.dim_historico on public.dim_historico.pk_historico = public.fato.fk_historico
+GROUP by nome_produto order by qtd desc
+limit 10
+

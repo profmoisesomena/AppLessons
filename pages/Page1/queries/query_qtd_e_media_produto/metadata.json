@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "SelectQuery",
+    "name": "query_qtd_e_media_produto",
     "datasource": {
       "name": "dw_cliente_historico_produto",
       "pluginId": "postgres-plugin",
@@ -18,32 +18,27 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM public.\"dim_cliente\"\nWHERE \"nome\" ilike '%{{data_table.searchText || \"\"}}%'\nORDER BY \"{{data_table.sortOrder.column || 'pk_cliente'}}\" {{data_table.sortOrder.order || 'ASC'}}\nLIMIT {{data_table.pageSize}}\nOFFSET {{(data_table.pageNo - 1) * data_table.pageSize}};",
+      "body": "select nome_produto, count(*) as qtd, avg(valor_venda) as preco_medio  FROM public.dim_cliente\ninner join public.fato on public.dim_cliente.pk_cliente = public.fato.fk_cliente\ninner join public.dim_produto on public.dim_produto.pk_produto = public.fato.fk_produto\ninner join public.dim_historico on public.dim_historico.pk_historico = public.fato.fk_historico\nGROUP by nome_produto order by qtd desc\nlimit 10\n",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
-          "value": false
+          "value": true
         }
       ]
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
+    "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [
-      "(data_table.pageNo - 1) * data_table.pageSize",
-      "data_table.pageSize",
-      "data_table.searchText || \"\"",
-      "data_table.sortOrder.column || 'pk_cliente'",
-      "data_table.sortOrder.order || 'ASC'"
-    ],
-    "userSetOnLoad": true,
+    "jsonPathKeys": [],
+    "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2024-03-24T02:33:42Z"
+    "createdAt": "2024-03-24T02:41:12Z"
   },
-  "id": "Page1_SelectQuery",
+  "id": "Page1_query_qtd_e_media_produto",
   "deleted": false,
-  "gitSyncId": "65ff8124c89b9773a1a97a86_65ff9106c89b9773a1a97aa3"
+  "gitSyncId": "65ff8124c89b9773a1a97a86_65ff92c8c89b9773a1a97aa9"
 }
